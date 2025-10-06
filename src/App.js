@@ -1,42 +1,44 @@
-import {Routes,Route, Navigate} from 'react-router-dom';
-import LoginPage from './pages/loginpage';
-import Dashboard from './pages/dashboard';
-import RegisterPage from './pages/registerpage';
-import PostJob from './pages/Postjob';
-import JobRecuiterSettings from './pages/JobRecruitersettings';
-import AdminDashboard from './pages/AdminDashboard';
-import RecruiterProfile from './pages/RecruiterProfile';
-import RequestStudent from './pages/RequestStudent';
-import JobHistory from './pages/JobHistory';
-import AdminStudentRequest from './pages/AdminStudentRequest';
-import AdminJobRequests from './pages/AdminJobRequest';
+import { Routes, Route } from 'react-router-dom';
+import LoginPage from './pages/auth/Loginpage';
+import Dashboard from './pages/recruiters/Dashboard';
+import RegisterPage from './pages/auth/Registerpage';
+import PostJob from './pages/recruiters/Postjob';
+import JobRecuiterSettings from './pages/recruiters/JobRecruitersettings';
+import AdminDashboard from './pages/admin/AdminDashboard';
+import RequestStudent from './pages/recruiters/RequestStudent';
+import JobHistory from './pages/recruiters/JobHistory';
+import AdminStudentRequest from './pages/admin/AdminStudentRequest';
+import AdminJobRequests from './pages/admin/AdminJobRequest';
 import LandingPage from './pages/LandingPage';
-import ContactPage from './pages/Contactpage';
-import AboutPage from './pages/AboutPage';
-import Testimonial from './pages/Testimonial';
+import RequestedStudents from './pages/recruiters/RequestedStudents';
+import SetupAccount from './pages/recruiters/SetupAccount';
+import AdminRecruitersList from './pages/admin/Recruiterslist';
 
 function App() {
   return (
-    <div className="App">
-     <Routes>
-      <Route path='/login' element={<LoginPage/>}/>
-      <Route path='/dashboard' element={<Dashboard/>}/>
-      <Route path='/register' element={<RegisterPage/>}/>
-      <Route path='/postjob' element={<PostJob/>}/>
-      <Route path='/jobrecruitersettings' element={<JobRecuiterSettings/>}/>
-      <Route path='/admindashboard' element={<AdminDashboard/>}/>
-      <Route path='/recruiterprofile' element={<RecruiterProfile/>}/>
-      <Route path='/requeststudent' element={<RequestStudent/>}/>
-      <Route path='/jobhistory' element={<JobHistory/>}/>
-      <Route path='/adminstudentrequest' element={<AdminStudentRequest/>}/>
-      <Route path='/adminjobrequest' element={<AdminJobRequests/>}/>
-      <Route path='/landingpage' element={<LandingPage/>}/>
-      <Route path='/contactpage' element={<ContactPage/>}/>
-      <Route path='/aboutpage' element={<AboutPage/>}/>
-      <Route path='/testimonial' element={<Testimonial/>}/>
-      <Route path='/' element={<Navigate to='/dashboard'/>}/>
-      
-     </Routes>
+    <div className="App overflow-x-hidden">
+      <Routes>
+        <Route path='/' element={<LandingPage />} />
+
+        <Route path='/login' element={<LoginPage />} />
+        <Route path='/register' element={<RegisterPage />} />
+
+        <Route path='/recruiter/setupaccount' element={<SetupAccount />} />
+        <Route path='/recruiter/dashboard' element={<Dashboard />} />
+        <Route path='/recruiter/postjob' element={<PostJob />} />
+        <Route path='/recruiter/jobrecruitersettings' element={<JobRecuiterSettings />} />
+        <Route path='/recruiter/requeststudent' element={<RequestStudent />} />
+        <Route path='/recruiter/jobhistory' element={<JobHistory />} />
+        <Route path='/recruiter/requestedstudents' element={<RequestedStudents />} />
+
+        <Route path='/admin/dashboard' element={<AdminDashboard />} />
+        <Route path='/admin/studentrequest' element={<AdminStudentRequest />} />
+        <Route path='/admin/jobrequest' element={<AdminJobRequests />} />
+        <Route path='/admin/recruiterslist' element={<AdminRecruitersList />} />
+
+        {/* <Route path='/' element={<Navigate to='/dashboard'/>}/> */}
+
+      </Routes>
     </div>
   );
 }
