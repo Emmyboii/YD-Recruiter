@@ -1,7 +1,61 @@
+// import { Routes, Route } from 'react-router-dom';
+// import LoginPage from './pages/auth/Loginpage';
+// import Dashboard from './pages/recruiters/Dashboard';
+// import PostJob from './pages/recruiters/Postjob';
+// import JobRecuiterSettings from './pages/recruiters/JobRecruitersettings';
+// import AdminDashboard from './pages/admin/AdminDashboard';
+// import RequestStudent from './pages/recruiters/RequestStudent';
+// import JobHistory from './pages/recruiters/JobHistory';
+// import AdminStudentRequest from './pages/admin/AdminStudentRequest';
+// import AdminJobRequests from './pages/admin/AdminJobRequest';
+// import LandingPage from './pages/LandingPage';
+// import RequestedStudents from './pages/recruiters/RequestedStudents';
+// import SetupAccount from './pages/auth/SetupAccount';
+// import AdminRecruitersList from './pages/admin/Recruiterslist';
+// import PublicRoutes from './components/PublicRoutes';
+// import ProtectedRoutes from './components/ProtectedRoutes';
+// import ProtectedRecruiterRoutes from './components/ProtectedRecruitersRoutes';
+// import ProtectedAdminRoutes from './components/ProtectedAdminRoutes';
+
+// function App() {
+//   return (
+//     <div className="App overflow-x-hidden">
+//       <Routes>
+//         {/* PUBLIC */}
+//         <Route path="/" element={<PublicRoutes><LandingPage /></PublicRoutes>} />
+//         <Route path="/login" element={<PublicRoutes><LoginPage /></PublicRoutes>} />
+//         <Route path="/register" element={<PublicRoutes><SetupAccount /></PublicRoutes>} />
+
+//         <Route element={<ProtectedRoutes />}>
+//           {/* RECRUITER PROTECTED ROUTES */}
+//           <Route element={<ProtectedRecruiterRoutes />}>
+//             <Route path="/recruiter/dashboard" element={<Dashboard />} />
+//             <Route path="/recruiter/postjob" element={<PostJob />} />
+//             <Route path="/recruiter/jobrecruitersettings" element={<JobRecuiterSettings />} />
+//             <Route path="/recruiter/requeststudent" element={<RequestStudent />} />
+//             <Route path="/recruiter/jobhistory" element={<JobHistory />} />
+//             <Route path="/recruiter/requestedstudents" element={<RequestedStudents />} />
+//           </Route>
+
+//           {/* ADMIN PROTECTED ROUTES */}
+//           <Route element={<ProtectedAdminRoutes />}>
+//             <Route path="/admin/dashboard" element={<AdminDashboard />} />
+//             <Route path="/admin/studentrequest" element={<AdminStudentRequest />} />
+//             <Route path="/admin/jobrequest" element={<AdminJobRequests />} />
+//             <Route path="/admin/recruiterslist" element={<AdminRecruitersList />} />
+//           </Route>
+//         </Route>
+//       </Routes>
+//     </div >
+//   );
+// }
+
+// export default App;
+
+
 import { Routes, Route } from 'react-router-dom';
 import LoginPage from './pages/auth/Loginpage';
 import Dashboard from './pages/recruiters/Dashboard';
-import RegisterPage from './pages/auth/Registerpage';
 import PostJob from './pages/recruiters/Postjob';
 import JobRecuiterSettings from './pages/recruiters/JobRecruitersettings';
 import AdminDashboard from './pages/admin/AdminDashboard';
@@ -11,7 +65,7 @@ import AdminStudentRequest from './pages/admin/AdminStudentRequest';
 import AdminJobRequests from './pages/admin/AdminJobRequest';
 import LandingPage from './pages/LandingPage';
 import RequestedStudents from './pages/recruiters/RequestedStudents';
-import SetupAccount from './pages/recruiters/SetupAccount';
+import SetupAccount from './pages/auth/SetupAccount';
 import AdminRecruitersList from './pages/admin/Recruiterslist';
 
 function App() {
@@ -21,9 +75,8 @@ function App() {
         <Route path='/' element={<LandingPage />} />
 
         <Route path='/login' element={<LoginPage />} />
-        <Route path='/register' element={<RegisterPage />} />
+        <Route path='/register' element={<SetupAccount />} />
 
-        <Route path='/recruiter/setupaccount' element={<SetupAccount />} />
         <Route path='/recruiter/dashboard' element={<Dashboard />} />
         <Route path='/recruiter/postjob' element={<PostJob />} />
         <Route path='/recruiter/jobrecruitersettings' element={<JobRecuiterSettings />} />
@@ -36,11 +89,10 @@ function App() {
         <Route path='/admin/jobrequest' element={<AdminJobRequests />} />
         <Route path='/admin/recruiterslist' element={<AdminRecruitersList />} />
 
-        {/* <Route path='/' element={<Navigate to='/dashboard'/>}/> */}
-
       </Routes>
     </div>
   );
 }
 
 export default App;
+

@@ -21,10 +21,10 @@ export default function RecruiterSidebar() {
 
   const links = [
     { to: "/recruiter/dashboard", label: "Dashboard", icon: "🏠" },
-    { to: "/recruiter/jobhistory", label: "My Jobs", icon: "📋" },
-    { to: "/recruiter/requeststudent", label: "Request Students", icon: "🧾" },
-    { to: "/recruiter/requestedstudents", label: "Requested Students", icon: "🧑‍🎓" },
     { to: "/recruiter/postjob", label: "Post New Job", icon: "➕" },
+    { to: "/recruiter/requeststudent", label: "Request Students", icon: "🧾" },
+    { to: "/recruiter/jobhistory", label: "My Jobs", icon: "📋" },
+    { to: "/recruiter/requestedstudents", label: "Requested Students", icon: "🧑‍🎓" },
     { to: "/recruiter/jobrecruitersettings", label: "Settings", icon: "⚙️" },
   ];
 

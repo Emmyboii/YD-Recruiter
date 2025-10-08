@@ -39,9 +39,9 @@ export default function Register() {
         password,
       });
 
-      // Save token (if your API returns one)
-      if (response.data.token) {
-        localStorage.setItem("token", response.data.token);
+      // Save youtoken (if your API returns one)
+      if (response.data.youtoken) {
+        localStorage.setItem("youtoken", response.data.youtoken);
         localStorage.setItem("role", role);
       }
 
@@ -141,7 +141,7 @@ export default function Register() {
           <form onSubmit={handleRegister} className="sm:space-y-5 space-y-3">
             <div>
               <label className="block text-gray-700 text-sm mb-2">
-                Full Name
+                Company Name
               </label>
               <input
                 type="text"
