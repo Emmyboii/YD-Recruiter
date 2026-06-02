@@ -22,8 +22,10 @@ export default function AdminSidebar() {
     const links = [
         { to: "/admin/dashboard", label: "Dashboard", icon: "🏠" },
         { to: "/admin/jobrequest", label: "Job Requests", icon: "💼" },
+        { to: "/admin/jobs", label: "Job Board", icon: "📊" },
         { to: "/admin/studentrequest", label: "Student Requests", icon: "📥" },
         { to: "/admin/recruiterslist", label: "Recruiters List", icon: "🧑‍💼" },
+        { to: "/admin/students", label: "Students", icon: "🎓" },
     ];
 
     const handleLogout = () => {

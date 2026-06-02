@@ -43,6 +43,10 @@
 //             <Route path="/admin/studentrequest" element={<AdminStudentRequest />} />
 //             <Route path="/admin/jobrequest" element={<AdminJobRequests />} />
 //             <Route path="/admin/recruiterslist" element={<AdminRecruitersList />} />
+//             <Route path='/admin/students' element={<Students />} />
+//             <Route path='/admin/students/:id' element={<StudentDetails />} />
+//             <Route path='/admin/students/:id/edit' element={<EditStudent />} />
+//             <Route path='/admin/students/add' element={<AddStudents />} />
 //           </Route>
 //         </Route>
 //       </Routes>
@@ -67,6 +71,12 @@ import LandingPage from './pages/LandingPage';
 import RequestedStudents from './pages/recruiters/RequestedStudents';
 import SetupAccount from './pages/auth/SetupAccount';
 import AdminRecruitersList from './pages/admin/Recruiterslist';
+import NotFound from './pages/NotFound';
+import Students from './pages/admin/Students';
+import StudentDetails from './pages/admin/StudentDetails';
+import EditStudent from './pages/admin/EditStudent';
+import AddStudents from './pages/admin/AddStudents';
+import AdminJobs from './pages/admin/Job';
 
 function App() {
   return (
@@ -88,6 +98,13 @@ function App() {
         <Route path='/admin/studentrequest' element={<AdminStudentRequest />} />
         <Route path='/admin/jobrequest' element={<AdminJobRequests />} />
         <Route path='/admin/recruiterslist' element={<AdminRecruitersList />} />
+        <Route path='/admin/students' element={<Students />} />
+        <Route path='/admin/jobs' element={<AdminJobs />} />
+        <Route path='/admin/students/:id' element={<StudentDetails />} />
+        <Route path='/admin/students/:id/edit' element={<EditStudent />} />
+        <Route path='/admin/students/add' element={<AddStudents />} />
+
+        <Route path='*' element={<NotFound />} />
 
       </Routes>
     </div>
