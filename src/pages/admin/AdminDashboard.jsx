@@ -6,19 +6,19 @@ export default function AdminDashboard() {
   const navigate = useNavigate();
 
   // Mock data (replace with API fetch)
-  const [stats, setStats] = useState({
+  const [stats,] = useState({
     totalStudents: 1200,
     totalRecruiters: 85,
     totalJobs: 320,
   });
 
-  const [recentActivity, setRecentActivity] = useState([
+  const [recentActivity,] = useState([
     { id: 1, type: "jobPosted", title: "Frontend Developer Posted", time: "2h ago" },
     { id: 2, type: "studentRequest", title: "New Student Request: John Doe", time: "5h ago" },
     { id: 3, type: "recruiterApproved", title: "Recruiter Jane Smith Approved", time: "1d ago" },
   ]);
 
-  const [quickActions, setQuickActions] = useState([
+  const [quickActions,] = useState([
     { id: 1, label: "Approve Student Requests", action: () => navigate("/admin/studentrequest") },
     { id: 2, label: "Review Job Postings", action: () => navigate("/admin/jobrequest") },
     { id: 3, label: "Manage Recruiters", action: () => navigate("/admin/recruiterslist") },
