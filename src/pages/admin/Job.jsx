@@ -64,6 +64,8 @@ export default function AdminJobs() {
         setExpanded(expanded === id ? null : id);
     };
 
+    const [copied, setCopied] = useState(null);
+
     return (
         <div className="flex min-h-screen bg-gray-50">
             <AdminSidebar />
@@ -125,10 +127,10 @@ export default function AdminJobs() {
 
                                     <span
                                         className={`px-3 py-1 flex items-center justify-center text-sm rounded-full font-semibold ${job.status === "Pending"
-                                                ? "bg-yellow-100 text-yellow-800"
-                                                : job.status === "Approved"
-                                                    ? "bg-green-100 text-green-800"
-                                                    : "bg-red-100 text-red-800"
+                                            ? "bg-yellow-100 text-yellow-800"
+                                            : job.status === "Approved"
+                                                ? "bg-green-100 text-green-800"
+                                                : "bg-red-100 text-red-800"
                                             }`}
                                     >
                                         {job.status}
@@ -138,6 +140,36 @@ export default function AdminJobs() {
                                 <p className="text-gray-600 mt-3 text-sm">
                                     💰 {job.salary}
                                 </p>
+
+                                {job.status === "Approved" && (
+                                    <div className="mt-4 p-3 bg-green-50 rounded-xl">
+                                        <p className="text-green-700 text-sm font-medium">
+                                            Recommend a student to this recruiter:
+                                        </p>
+
+                                        <a
+                                            href={`mailto:?subject=Job Match Recommendation - ${job.title}`}
+                                            className="text-blue-700 underline text-sm"
+                                        >
+                                            Compose Recommendation Email
+                                        </a>
+                                        <br />
+
+                                        <button
+                                            onClick={(e) => {
+                                                e.stopPropagation();
+                                                navigator.clipboard.writeText(
+                                                    `Hi,\n\nWe have a recommended student for ${job.title}.\n\nStudent Profile: https://yd-recruiter.vercel.app/recruiter/students/1\n\nPlease review and respond.`
+                                                )
+                                                setCopied(job.id);
+                                                setTimeout(() => setCopied(null), 2000);
+                                            }}
+                                            className="text-sm text-blue-700 underline mt-2"
+                                        >
+                                            {copied === job.id ? "Copied!" : "Copy Recommendation Template"}
+                                        </button>
+                                    </div>
+                                )}
                             </div>
 
                             {/* Expanded */}

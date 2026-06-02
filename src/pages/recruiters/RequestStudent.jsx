@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import RecruiterSidebar from "../../components/RecruiterSidebar";
+import { useNavigate } from "react-router-dom";
 
 export default function RequestStudent() {
   const [chatUser, setChatUser] = useState(null);
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState("");
+  const navigate = useNavigate();
 
   // const openChat = (student) => setChatUser(student);
 
@@ -190,6 +192,12 @@ export default function RequestStudent() {
                 <p className="text-gray-600">Location: {student.location}</p>
                 <p className="text-gray-600">Availability: {student.availability}</p>
                 <div className="mt-4 flex gap-2 w-full">
+                  <button
+                    onClick={() => navigate(`/recruiter/students/${student.id}`)}
+                    className="w-full bg-gray-200 text-gray-800 py-2 rounded-xl font-semibold hover:bg-gray-300 transition"
+                  >
+                    👁 View Details
+                  </button>
                   <button
                     onClick={() => alert(`Request sent for ${student.name}`)}
                     className="w-full bg-blue-900 text-white py-2 rounded-xl font-semibold hover:bg-blue-800 transition"

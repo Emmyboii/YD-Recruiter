@@ -12,6 +12,11 @@ export default function AdminStudentRequests() {
     setRequests(requests.map(req => req.id === id ? { ...req, status: newStatus } : req));
   };
 
+  const [copied, setCopied] = useState(null);
+
+  const getStudentProfileLink = (id) =>
+    `https://yd-recruiter.vercel.app/recruiter/students/${id}`;
+
   return (
     <div className="flex min-h-screen bg-gray-50">
       {/* Sidebar */}
@@ -39,8 +44,8 @@ export default function AdminStudentRequests() {
                     <p className="text-sm text-gray-500">{req.course} • {req.recruiter}</p>
                   </div>
                   <span className={`px-3 py-1 text-sm rounded-full font-semibold ${req.status === "Pending" ? "bg-yellow-100 text-yellow-800" :
-                      req.status === "Approved" ? "bg-green-100 text-green-800" :
-                        "bg-red-100 text-red-800"
+                    req.status === "Approved" ? "bg-green-100 text-green-800" :
+                      "bg-red-100 text-red-800"
                     }`}>
                     {req.status}
                   </span>
@@ -59,6 +64,36 @@ export default function AdminStudentRequests() {
                       className="flex-1 bg-red-500 text-white py-2 rounded-xl font-semibold hover:bg-red-600 transition"
                     >
                       ❌ Reject
+                    </button>
+                  </div>
+                )}
+
+                {req.status === "Approved" && (
+                  <div className="mt-4 p-3 bg-green-50 rounded-xl">
+                    <p className="text-green-700 text-sm font-medium">
+                      ✅ Approved! Share this student profile:
+                    </p>
+
+                    <a
+                      href={`mailto:?subject=Student Approval Update - ${req.name}`}
+                      className="text-blue-700 underline text-sm"
+                    >
+                      Compose Email to Recruiter
+                    </a>
+
+                    <br />
+
+                    <button
+                      onClick={() => {
+                        navigator.clipboard.writeText(
+                          `Student ${req.name} has been approved.\nProfile: ${getStudentProfileLink(req.id)}`
+                        )
+                        setCopied(req.id);
+                        setTimeout(() => setCopied(null), 2000);
+                      }}
+                      className="text-sm text-blue-700 underline"
+                    >
+                      {copied === req.id ? "Copied!" : "Copy Message Template"}
                     </button>
                   </div>
                 )}

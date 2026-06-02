@@ -77,6 +77,7 @@ import StudentDetails from './pages/admin/StudentDetails';
 import EditStudent from './pages/admin/EditStudent';
 import AddStudents from './pages/admin/AddStudents';
 import AdminJobs from './pages/admin/Job';
+import RecruiterStudentDetails from './pages/recruiters/RecruiterStudentDetails';
 
 function App() {
   return (
@@ -93,6 +94,7 @@ function App() {
         <Route path='/recruiter/requeststudent' element={<RequestStudent />} />
         <Route path='/recruiter/jobhistory' element={<JobHistory />} />
         <Route path='/recruiter/requestedstudents' element={<RequestedStudents />} />
+        <Route path='/recruiter/students/:id' element={<RecruiterStudentDetails />} />
 
         <Route path='/admin/dashboard' element={<AdminDashboard />} />
         <Route path='/admin/studentrequest' element={<AdminStudentRequest />} />
